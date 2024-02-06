@@ -76,5 +76,3 @@ async def send_shrine_embeds(data, channel_id, bot):
     else:
         print("Channel not found.")
 #----------------------------------------------------------------------------------#
-        
-
