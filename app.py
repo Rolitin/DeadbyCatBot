@@ -108,7 +108,7 @@ async def send_automated_message():
 #----------------------------------------------------------------------------------#
 # Scheduler setup
 def run_scheduler():
-    schedule.every().day.at("19:35").do(lambda: bot.loop.create_task(send_automated_message()))
+    schedule.every().day.at("20:00").do(lambda: bot.loop.create_task(send_automated_message()))
     while True:
         schedule.run_pending()
         time.sleep(1)
