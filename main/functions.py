@@ -3,7 +3,7 @@ import threading
 import schedule
 import time
 from config import scheduled_time
-from async_def import fetch_shrine_data, send_shrine_embeds
+from .async_def import fetch_shrine_data, send_shrine_embeds
 #----------------------------------------------------------------------------------#
 async def send_automated_message(bot, channel_id):
     data = await fetch_shrine_data()

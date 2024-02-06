@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------------------#
-from async_def import fetch_shrine_data, send_shrine_embeds
+from .async_def import fetch_shrine_data, send_shrine_embeds
 #----------------------------------------------------------------------------------#
 async def fetch_shrine_info(ctx, bot):
     # Your existing function code using both ctx and bot

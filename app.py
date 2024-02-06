@@ -10,10 +10,10 @@ import schedule
 import time
 import os
 import config
-from bot_event import bot_ready
-from commands import fetch_shrine_info, cmd_ping
-from async_def import send_shrine_embeds, fetch_shrine_data
-from functions import run_scheduler
+from main.bot_event import bot_ready
+from main.commands import fetch_shrine_info, cmd_ping
+from main.async_def import send_shrine_embeds, fetch_shrine_data
+from main.functions import run_scheduler
 #----------------------------------------------------------------------------------#
 intents = discord.Intents.default()
 intents.message_content = True
