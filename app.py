@@ -98,6 +98,10 @@ async def fetch_shrine_info(ctx):
     else:
         await ctx.send("Failed to fetch data from the API.")
 #----------------------------------------------------------------------------------#
+# !ping command
+@bot.command(name="ping")
+async def cmd_ping_answer(ctx.send("!pong"))
+#----------------------------------------------------------------------------------#
 # Function to send automated message
 async def send_automated_message():
     data = await fetch_shrine_data()
