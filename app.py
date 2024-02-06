@@ -34,6 +34,11 @@ usage_icons_urls = {
 async def on_ready():
     print(f'Logged in as {bot.user.name} - {bot.user.id}')
 #----------------------------------------------------------------------------------#
+    
+@bot.command(name="ping")
+async def cmd_ping(ctx):
+    await ctx.send("!pong")
+#----------------------------------------------------------------------------------#  
 async def fetch_shrine_data():
     response = requests.get('https://api.nightlight.gg/v1/shrine')
     if response.status_code == 200:
@@ -89,10 +94,6 @@ async def fetch_shrine_info(ctx):
     else:
         await ctx.send("Failed to fetch data from the API.")
 #----------------------------------------------------------------------------------#
-@bot.command(name="ping")
-async def cmd_ping_answer(ctx.send("!pong"))
-#----------------------------------------------------------------------------------#
-# Function to send automated message
 async def send_automated_message():
     data = await fetch_shrine_data()
     if data:
