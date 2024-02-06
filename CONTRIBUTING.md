@@ -28,5 +28,8 @@ You can contribute in several ways:
 - Update the `README.md` and `CHANGELOG.md` (if necessary) to reflect your changes.
 - Make sure your changes pass any existing unit tests and add new tests if you're adding new features.
 
+## Code of Conduct
+
+This project and everyone participating in it is governed by the [Dead by Cat Bot Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
 
 Thank you for contributing!
