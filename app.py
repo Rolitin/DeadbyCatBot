@@ -33,6 +33,7 @@ async def on_ready():
 async def shrine_command(ctx):
     await fetch_shrine_info(ctx, bot)
 #----------------------------------------------------------------------------------#
+@bot.command(name='ping')
 async def ping_command(ctx):
     await cmd_ping(ctx)
 #----------------------------------------------------------------------------------#
