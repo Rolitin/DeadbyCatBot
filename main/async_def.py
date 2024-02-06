@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------------------#
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 import pytz
 import time
 from config import usage_icons_urls
@@ -16,17 +16,36 @@ async def fetch_shrine_data():
 async def send_shrine_embeds(data, channel_id, bot):
     channel = bot.get_channel(channel_id)
     if channel:
+        # Parse the start and end times
         starts_at = datetime.fromisoformat(data['data']['start']).replace(tzinfo=pytz.UTC)
         ends_at = datetime.fromisoformat(data['data']['end']).replace(tzinfo=pytz.UTC)
-        starts_at_unix = int(time.mktime(starts_at.timetuple()))
-        ends_at_unix = int(time.mktime(ends_at.timetuple()))
+        now = datetime.now(pytz.UTC)
+        
+        remaining = ends_at - now
+        if remaining.total_seconds() > 0:
+            #
+            days, remainder = divmod(remaining.total_seconds(), 86400)
+            hours, remainder = divmod(remainder, 3600)
+            minutes = divmod(remainder, 60)[0]
+            time_parts = []
+            if days > 0:
+                time_parts.append(f"{int(days)} days")
+            if hours > 0:
+                time_parts.append(f"{int(hours)} hours")
+            if minutes > 0:
+                time_parts.append(f"{int(minutes)} minutes")
+            time_remaining_str = " ".join(time_parts)
+        else:
+            time_remaining_str = "Time's up!"
 
         shrine_info_embed = discord.Embed(
             title=f'**Week {data["data"]["week"]} Shrine Of Secrets**',
-            description=f'**Starts**: <t:{starts_at_unix}:F>\n'
-                        f'**Ends**: <t:{ends_at_unix}:F>',
+            description=f'**Starts**: <t:{int(starts_at.timestamp())}:F>\n'
+                        f'**Ends**: <t:{int(ends_at.timestamp())}:F>\n'
+                        f'**Time Remaining**: {time_remaining_str}',
             color=0xffa500
         )
+        
         await channel.send(embed=shrine_info_embed)
 
         for perk in data['data']['perks']:
@@ -53,3 +72,5 @@ async def send_shrine_embeds(data, channel_id, bot):
     else:
         print("Channel not found.")
 #----------------------------------------------------------------------------------#
+        
+
