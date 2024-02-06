@@ -5,14 +5,7 @@
 #----------------------------------------------------------------------------------#
 import discord
 from discord.ext import commands
-#import requests
-#import json
-#from datetime import datetime
-#import pytz
 import threading
-#import schedule
-#import time
-#import os
 import config
 from main.bot_event import bot_ready
 from main.commands import fetch_shrine_info, cmd_ping

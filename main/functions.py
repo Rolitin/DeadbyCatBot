@@ -3,7 +3,6 @@
 # Functions
 #
 #----------------------------------------------------------------------------------#
-#import threading
 import schedule
 import time
 from config import scheduled_time
