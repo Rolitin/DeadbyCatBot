@@ -8,6 +8,7 @@ import threading
 import schedule
 import time
 import json
+import config
 
 automated_message_channel_id = 1117895284773634128
 
