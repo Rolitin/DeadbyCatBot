@@ -38,6 +38,7 @@ async def on_ready():
 @bot.command(name="ping")
 async def cmd_ping(ctx):
     await ctx.send("!pong")
+
 #----------------------------------------------------------------------------------#  
 async def fetch_shrine_data():
     response = requests.get('https://api.nightlight.gg/v1/shrine')
