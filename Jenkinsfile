@@ -4,22 +4,27 @@ pipeline {
     stages {
         stage('Stop DBD App') {
             steps {
-                // Attempt to kill the DBDapp.py process if it is running
-                bat 'taskkill /F /IM python.exe /FI "WINDOWTITLE eq DBDapp" || echo "DBD App not running or cannot be stopped."'
+                script {
+                    // Assuming app.py writes its PID to app.pid upon starting
+                    bat script: 'if exist "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Dead by Cat Bot\\app.pid" (for /F %p in (C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Dead by Cat Bot\\app.pid) do taskkill /F /PID %p) else echo "DBD App not running."', returnStatus: true
+                }
             }
         }
+
         stage('Clone Repository') {
             steps {
-                // Clones the repository to the current workspace
                 checkout scm
                 echo "Repository cloned to: ${pwd()}"
             }
         }
+
         stage('Start DBD App') {
             steps {
-                // Starts the DBDapp.py application
-                bat 'start cmd /c "python DBDapp.py"'
-                echo "DBD App started."
+                script {
+                    // Navigate to the directory where the repository is cloned and start app.py
+                    bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Dead by Cat Bot && python app.py > app.log 2>&1 &'
+                    echo "DBD App started."
+                }
             }
         }
     }
