@@ -10,7 +10,6 @@ pipeline {
         stage('Stop DBD App') {
             steps {
                 script {
-                    //
                     bat 'if exist "C:\\Users\\rolando\\Documents\\Jenkins\\.jenkins\\workspace\\Dead-by-Cat-Bot\\app.pid" (for /F %%p in (C:\\Users\\rolando\\Documents\\Jenkins\\.jenkins\\workspace\\Dead-by-Cat-Bot\\app.pid) do taskkill /F /PID %%p ) else echo "DBD App not running."'
                 }
             }
@@ -23,8 +22,7 @@ pipeline {
         stage('Start Application') {
             steps {
                 script {
-                    //
-                    bat 'start python C:\\Users\\rolando\\Documents\\Jenkins\\.jenkins\\workspace\\Dead-by-Cat-Bot\\app.py'
+                    bat 'start /WAIT cmd /c python C:\\Users\\rolando\\Documents\\Jenkins\\.jenkins\\workspace\\Dead-by-Cat-Bot\\app.py'
                 }
             }
         }
