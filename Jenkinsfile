@@ -23,8 +23,8 @@ pipeline {
             steps {
                 script {
                     //
-                    bat 'start "DBD App" cmd /c "cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Dead-by-Cat-Bot && python app.py > app.log 2>&1"'
-                    echo "DBD App started."
+                    bat label: 'DBD App', script: 'start "DBD App" cmd /K "cd /d C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Dead-by-Cat-Bot && python app.py"'
+                    echo "DBD App started in a new window."
                 }
             }
         }
