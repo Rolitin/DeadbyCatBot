@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     //
-                    bat 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Dead-by-Cat-Bot && python app.py > app.log 2>&1'
+                    bat 'start "DBD App" cmd /c "cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Dead-by-Cat-Bot && python app.py > app.log 2>&1"'
                     echo "DBD App started."
                 }
             }
