@@ -22,7 +22,7 @@ pipeline {
         stage('Start Application') {
             steps {
                 script {
-                    bat 'start wscript.exe C:\\Users\\rolando\\Documents\\Jenkins\\.jenkins\\workspace\\Dead-by-Cat-Bot\\start_app.vbs'
+                    bat 'start cmd /k python C:\\Users\\rolando\\Documents\\Jenkins\\.jenkins\\workspace\\Dead-by-Cat-Bot\\app.py'
                 }
             }
         }
