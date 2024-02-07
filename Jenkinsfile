@@ -26,6 +26,23 @@ pipeline {
 
                 // Execute the Python script
                 bat label: 'Run Python Script', script: 'python app.py'
+
+                // Wait for the desired message in the console output
+                script {
+                    def found = false
+                    def output = currentBuild.rawBuild.getLog(1000)
+                    for (line in output) {
+                        if (line.contains("Logged in as Dead by Cat")) {
+                            found = true
+                            break
+                        }
+                    }
+                    if (found) {
+                        echo "Application started successfully."
+                    } else {
+                        error "Application did not start successfully."
+                    }
+                }
             }
         }
     }
