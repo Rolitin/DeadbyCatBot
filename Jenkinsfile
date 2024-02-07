@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    
     stages {
         stage('Declarative: Checkout SCM') {
             steps {
@@ -15,7 +15,6 @@ pipeline {
             }
         }
         stage('Clone Repository') {
-            //
             steps {
                 checkout scm
             }
@@ -23,7 +22,7 @@ pipeline {
         stage('Start Application') {
             steps {
                 script {
-                    bat 'start.bat'
+                    sh 'python C:\\Users\\rolando\\Documents\\Jenkins\\.jenkins\\workspace\\Dead-by-Cat-Bot\\app.py'
                 }
             }
         }
