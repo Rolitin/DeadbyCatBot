@@ -19,13 +19,13 @@ pipeline {
             }
         }
 
-        stage('Start DBD App') {
+        stage('Start Application') {
             steps {
-                script {
-                    //
-                    bat label: 'Starting DBD App', script: 'start "DBD App" cmd /K "cd /d C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Dead-by-Cat-Bot && python app.py 2>&1 >app.log"'
-                    echo "DBD App started in a new window."
-                }
+                // Change directory to the workspace directory
+                bat label: 'Change Directory', script: 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Dead-by-Cat-Bot'
+
+                // Execute the Python script
+                bat label: 'Run Python Script', script: 'python app.py'
             }
         }
     }
