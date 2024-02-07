@@ -26,16 +26,6 @@ pipeline {
 
                 // Start the Python script in a new window
                 bat label: 'Run Python Script', script: 'start "DBD App" cmd /K "python app.py"'
-
-                // Wait for the desired message in the console output
-                script {
-                    timeout(time: 5, unit: 'MINUTES') {
-                        waitUntil {
-                            def output = bat(script: 'type app.log', returnStdout: true).trim()
-                            return output.contains("Logged in as Dead by Cat")
-                        }
-                    }
-                }
             }
         }
     }
