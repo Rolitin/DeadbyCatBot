@@ -24,7 +24,7 @@ pipeline {
         
         stage('Start Application') {
             steps {
-                bat label: 'Start Application', script: 'start.bat'
+                bat label: 'Change Directory', script: 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Dead-by-Cat-Bot && start.bat'
             }
         }
     }
