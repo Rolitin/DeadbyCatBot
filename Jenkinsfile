@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Start DBD App') {
             steps {
-                // Starts the DBDapp.py application.
+                // Starts the DBDapp.py application
                 bat 'start cmd /c "python DBDapp.py"'
                 echo "DBD App started."
             }
