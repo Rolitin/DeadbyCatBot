@@ -1,13 +1,11 @@
 pipeline {
     agent any
-    
     stages {
         stage('Declarative: Checkout SCM') {
             steps {
                 checkout scm
             }
         }
-        
         stage('Stop DBD App') {
             steps {
                 script {
@@ -15,16 +13,15 @@ pipeline {
                 }
             }
         }
-        
         stage('Clone Repository') {
             steps {
                 checkout scm
             }
         }
-        
         stage('Start Application') {
             steps {
-                bat label: 'Change Directory', script: 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Dead-by-Cat-Bot && start.bat'
+                bat label: 'Change Directory', script: 'cd C:\ProgramData\Jenkins\.jenkins\workspace\Dead-by-Cat-Bot'
+                bat label: 'Run Python Script', script: 'start "DBD App" cmd /K "python app.py"'
             }
         }
     }
