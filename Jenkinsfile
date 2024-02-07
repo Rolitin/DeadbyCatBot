@@ -24,8 +24,8 @@ pipeline {
                 // Change directory to the workspace directory
                 bat label: 'Change Directory', script: 'cd C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Dead-by-Cat-Bot'
 
-                // Execute the Python script
-                bat label: 'Run Python Script', script: 'python app.py'
+                // Start the Python script in a new window
+                bat label: 'Run Python Script', script: 'start "DBD App" cmd /K "python app.py"'
 
                 // Wait for the desired message in the console output
                 script {
