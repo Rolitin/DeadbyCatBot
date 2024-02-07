@@ -64,4 +64,4 @@ Contributions to the Shrine of Secrets Bot are welcome! Please feel free to subm
 ## Acknowledgments
 
 - Thanks to the creators of discord.py for their amazing library.
-- This bot uses the [Nightlight API](https://api.nightlight.gg) for fetching Shrine of Secrets data.
+- This bot uses the [Nightlight API](https://nightlight.gg) for fetching Shrine of Secrets data.
