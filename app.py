@@ -40,12 +40,3 @@ scheduler_thread.start()
 #----------------------------------------------------------------------------------#
 bot.run(config.token)
 #----------------------------------------------------------------------------------#
-def stop_bot():
-    # Use asyncio to create a new event loop for stopping the bot
-    import asyncio
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-
-    loop.run_until_complete(bot.close())
-    print("Bot stopped gracefully.")
-#----------------------------------------------------------------------------------#
